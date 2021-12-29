@@ -1,15 +1,8 @@
-table{
-    border: 1px solid black;
-
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-td{
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-}
-
-#calendar div {
-    text-align: center ;
-
+#cont {
+    display: flexbox;
 }

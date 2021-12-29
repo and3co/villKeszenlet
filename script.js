@@ -7,31 +7,30 @@ function makeCalend() {
 
         const lastDay = actDate.getDate();
         const actMonth = actDate.toLocaleDateString("hu-HU", { "month": "long" }).toLocaleUpperCase("hu-HU");
-        //const days = [1, 2, 3, 4, 5, 6, 0];
-        const days = { 1: "H", 2: "K", 3: "Sze", 4: "Cs", 5: "P", 6: "Szo", 0: "V" };
+        const daysNum = [1, 2, 3, 4, 5, 6, 0];
+        const daysStr = ["H", "K", "Sze", "Cs", "P", "Szo", "V"];
 
         actDiv = cal.appendChild(document.createElement("div"));
-        actDiv.innerHTML = actMonth;
+        actDiv.innerHTML = "<p>" + actMonth + "</p>";
         actTable = actDiv.appendChild(document.createElement("table"));
-        /*actHead = actTable.appendChild(document.createElement("th"));
-        actHead.classList.add("tableHead");
-        actHead.innerHTML = actMonth;*/
+
 
         let day = 1;
         actRow = actTable.appendChild(document.createElement("tr"));
-        for (const key in days) {
+
+        for (let index = 0; index < daysNum.length; index++) {
             let actTH = actRow.appendChild(document.createElement("th"));
-            actTH.innerHTML = days[key];
+            actTH.innerHTML = daysStr[index];
         }
 
         do {
             actRow = actTable.appendChild(document.createElement("tr"));
-            for (var element in days) {
+            for (let index = 0; index < daysNum.length; index++) {
                 actDate.setDate(day);
                 let actTD = actRow.appendChild(document.createElement("td"));
-                if (actDate.getDay() == element) {
+                if (actDate.getDay() == daysNum[index]) {
                     actTD.innerHTML = day.toString();
-                    day += 1;
+                    day++;
                 }
             };
         } while (day < lastDay)
