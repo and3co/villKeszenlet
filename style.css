@@ -1,0 +1,15 @@
+table{
+    border: 1px solid black;
+
+}
+
+td{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+#calendar div {
+    text-align: center ;
+
+}
